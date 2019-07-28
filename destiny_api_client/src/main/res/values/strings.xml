@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">destiny api client</string>
+    <string name="auth.screen.login_label">Login</string>
+</resources>
