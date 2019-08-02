@@ -16,6 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="Destiny.client_secret" android:value="qqDPmE6a5AUBOFdWOUtnHSJTB2TBluwj1NiMIRIvEfw" />
+        <meta-data android:name="Destiny.client_id" android:value="29248" />
+        <meta-data android:name="Destiny.api_base_path" android:value="https://www.bungie.net" />
+        <meta-data android:name="Destiny.api_auth_base_path" android:value="https://www.bungie.net/" />
+        <meta-data android:name="Destiny.api_auth_login_form" android:value="https://www.bungie.net/en/oauth/authorize" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

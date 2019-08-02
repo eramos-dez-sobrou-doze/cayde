@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.example.destiny_api_client.auth.AccessToken;
 import com.example.destiny_api_client.factory.ServiceGenerator;
 import com.example.destiny_api_client.login.LoginService;
+import com.example.destiny_api_client.utils.ConfigMetadata;
 
 import java.io.IOException;
 
@@ -37,26 +38,34 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        clientId = getResources().getString(R.string.client_id);
-        clientSecret = getResources().getString(R.string.client_secret);
-        authFormUrl = getResources().getString(R.string.api_auth_login_form);
-        //redirectUri = "http://localhost";
+        try {
+            final ConfigMetadata metaData = new ConfigMetadata(this);
+            //clientId = getResources().getString(R.string.client_id);
+            //clientSecret = getResources().getString(R.string.client_secret);
+            //authFormUrl = getResources().getString(R.string.api_auth_login_form);
 
-        Button loginButton = (Button) findViewById(R.id.loginbutton);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String loginFormUrl = String.format("%s?client_id=%s&response_type=code&redirect_uri=%s", authFormUrl, clientId, Uri.encode(redirectUri));
+            clientId = metaData.getData("Destiny.client_id");
+            clientSecret = metaData.getData("Destiny.client_secret");
+            authFormUrl = metaData.getData("Destiny.api_auth_login_form");
 
-                Log.d(LOG_TAG, String.format("form_url: %s", loginFormUrl));
+            Button loginButton = (Button) findViewById(R.id.loginbutton);
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String loginFormUrl = String.format("%s?client_id=%s&response_type=code&redirect_uri=%s", authFormUrl, clientId, Uri.encode(redirectUri));
 
-                Intent intent = new Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(loginFormUrl)
-                );
-                startActivity(intent);
-            }
-        });
+                    Log.d(LOG_TAG, String.format("form_url: %s", loginFormUrl));
+
+                    Intent intent = new Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse(loginFormUrl)
+                    );
+                    startActivity(intent);
+                }
+            });
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
