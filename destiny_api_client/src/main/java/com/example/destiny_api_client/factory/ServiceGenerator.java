@@ -36,7 +36,10 @@ public class ServiceGenerator {
     }
 
     public static <S> S createService(
-            Class<S> serviceClass, String clientId, String clientSecret) {
+            Class<S> serviceClass
+            , String clientId
+            , String clientSecret
+    ) {
         if (!TextUtils.isEmpty(clientId)
                 && !TextUtils.isEmpty(clientSecret)) {
             String authToken = Credentials.basic(clientId, clientSecret);

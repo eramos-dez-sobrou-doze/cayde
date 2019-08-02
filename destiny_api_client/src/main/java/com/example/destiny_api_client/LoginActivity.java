@@ -18,6 +18,7 @@ import com.example.destiny_api_client.login.LoginService;
 
 import java.io.IOException;
 
+import okhttp3.Credentials;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         clientId = getResources().getString(R.string.client_id);
-        clientSecret = getResources().getString(R.string.api_key);
+        clientSecret = getResources().getString(R.string.client_secret);
         authFormUrl = getResources().getString(R.string.api_auth_login_form);
         //redirectUri = "http://localhost";
 
@@ -71,7 +72,8 @@ public class LoginActivity extends AppCompatActivity {
             Log.d(LOG_TAG, String.format("code: %s", code));
             if (code != null) {
                 ServiceGenerator.createService(LoginService.class, clientId, clientSecret)
-                    .getAccessToken(code, "authorization_code", String.format("Basic %s", getResources().getString(R.string.api_key)), getResources().getString(R.string.client_id))
+                        .getAccessToken(code, "authorization_code", clientId, clientSecret)
+                        //.getAccessToken(code, "authorization_code", getResources().getString(R.string.client_id))
                         .enqueue(new Callback<AccessToken>() {
                             @Override
                             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {

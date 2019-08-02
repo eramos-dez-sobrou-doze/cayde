@@ -1,0 +1,10 @@
+HTTP/2 411 
+date: Fri, 02 Aug 2019 02:23:55 GMT
+content-type: text/html; charset=us-ascii
+content-length: 344
+set-cookie: __cfduid=d1cbddf1653a114e841bc2d5c88508c991564712635; expires=Sat, 01-Aug-20 02:23:55 GMT; path=/; domain=.bungie.net; HttpOnly
+set-cookie: Q6dA7jjmn3WPBRgUvjWzv2iYA/gA+oFCdZfKvpU@=v1adhRgw@@lWf; Expires=Fri, 02-Aug-2019 03:23:56 GMT; Path=/
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+server: cloudflare
+cf-ray: 4ffc97b0de14d048-GRU
+

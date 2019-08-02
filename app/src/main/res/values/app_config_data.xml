@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="api_key">783b6d258a4c470196bcbd0d2adba5cd</string>
+    <string name="client_secret">qqDPmE6a5AUBOFdWOUtnHSJTB2TBluwj1NiMIRIvEfw</string>
     <string name="client_id">29248</string>
 
     <string name="api_base_path">https://www.bungie.net/</string>
