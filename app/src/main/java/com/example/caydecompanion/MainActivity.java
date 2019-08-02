@@ -3,6 +3,7 @@ package com.example.caydecompanion;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.destiny_api_client.LoginActivity;
+import com.example.destiny_api_client.auth.AccessToken;
+import com.example.destiny_api_client.service.AccessCredentialsPersister;
 import com.example.destiny_api_client.service.DestinyApiService;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +28,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        debugPersistedAuthToken();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        debugPersistedAuthToken();
+    }
+
+    private void debugPersistedAuthToken() {
+        final AccessToken token = new AccessCredentialsPersister(this).retrieve();
+
+        Log.d("[AUTH_TEST]", String.format("persisted token: %s", token.toString()));
     }
 
     @Override

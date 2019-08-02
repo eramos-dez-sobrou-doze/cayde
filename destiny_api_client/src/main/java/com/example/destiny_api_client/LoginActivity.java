@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.example.destiny_api_client.auth.AccessToken;
 import com.example.destiny_api_client.factory.ServiceGenerator;
 import com.example.destiny_api_client.login.LoginService;
+import com.example.destiny_api_client.service.AccessCredentialsPersister;
 import com.example.destiny_api_client.utils.ConfigMetadata;
 
 import java.io.IOException;
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
                                 Log.d(LOG_TAG, String.format("auth response: %s", response.toString()));
+                                new AccessCredentialsPersister(LoginActivity.this).persist(response.body());
                             }
 
                             @Override
