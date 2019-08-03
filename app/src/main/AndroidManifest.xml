@@ -17,9 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="Destiny.api_key" android:value="783b6d258a4c470196bcbd0d2adba5cd" />
-        <meta-data android:name="Destiny.client_id" android:value="29248" />
-        <meta-data android:name="Destiny.client_secret" android:value="qqDPmE6a5AUBOFdWOUtnHSJTB2TBluwj1NiMIRIvEfw" />
+        <meta-data android:name="Destiny.api_key" android:value="${API_KEY}" />
+        <meta-data android:name="Destiny.client_id" android:value="${CLIENT_ID}" />
+        <meta-data android:name="Destiny.client_secret" android:value="${CLIENT_SECRET}" />
         <meta-data android:name="Destiny.api_base_path" android:value="https://www.bungie.net" />
         <meta-data android:name="Destiny.api_auth_base_path" android:value="https://www.bungie.net/" />
         <meta-data android:name="Destiny.api_auth_login_form" android:value="https://www.bungie.net/en/oauth/authorize" />

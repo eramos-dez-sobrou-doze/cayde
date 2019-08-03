@@ -16,6 +16,7 @@ import com.example.destiny_api_client.auth.AccessToken;
 import com.example.destiny_api_client.factory.ServiceGenerator;
 import com.example.destiny_api_client.login.LoginService;
 import com.example.destiny_api_client.service.AccessCredentialsPersister;
+import com.example.destiny_api_client.utils.ConfigConstants;
 import com.example.destiny_api_client.utils.ConfigMetadata;
 
 import java.io.IOException;
@@ -45,9 +46,9 @@ public class LoginActivity extends AppCompatActivity {
             //clientSecret = getResources().getString(R.string.client_secret);
             //authFormUrl = getResources().getString(R.string.api_auth_login_form);
 
-            clientId = metaData.getData("Destiny.client_id");
-            clientSecret = metaData.getData("Destiny.client_secret");
-            authFormUrl = metaData.getData("Destiny.api_auth_login_form");
+            clientId = metaData.getData(ConfigConstants.CLIENT_ID);
+            clientSecret = metaData.getData(ConfigConstants.CLIENT_SECRET);
+            authFormUrl = metaData.getData(ConfigConstants.LOGIN_FORM);
 
             Button loginButton = (Button) findViewById(R.id.loginbutton);
             loginButton.setOnClickListener(new View.OnClickListener() {
